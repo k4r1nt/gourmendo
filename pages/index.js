@@ -30,6 +30,7 @@ const fetchApi = async (area, budget, genre) => {
   const areaCode = ['&small_area=X119', '&middle_area=Y964'];
   const budgetList = ['&budget=B010,B011', '&budget=B001,B002', '&budget=B003,B008', ''];
   const genreList = [
+    '',
     '&genre=G001',
     '&genre=G002',
     '&genre=G003',
@@ -47,13 +48,12 @@ const fetchApi = async (area, budget, genre) => {
     '&genre=G015',
     '&genre=G016',
     '&genre=G017',
-    '',
   ];
   query.set('area', areaCode[area]);
   query.append('budget', budgetList[budget]);
   query.append('genre', genreList[genre]);
 
-  const apiUri = `http://${VERCEL_URL}api/getJson?${query.toString()}`;
+  const apiUri = `${VERCEL_URL}/api/getJson?${query.toString()}`;
   const res = await fetch(apiUri);
   const data = await res.json();
   if (!res.ok) {
@@ -68,44 +68,56 @@ const Index = ({ gourmet }) => {
   const classes = useStyles();
   const [area, setArea] = React.useState(0);
   const [budget, setBudget] = React.useState();
-  const [genre, setGenre] = React.useState();
+  const [genre, setGenre] = React.useState(0);
   const [value, setValue] = React.useState(gourmet ?? '');
   const setLow = async () => {
-    setBudget(0);
+    const select = 0;
+    setBudget(select);
     console.log(budget);
-    const res = await fetchApi(area, budget, 17);
+    const res = await fetchApi(area, select, genre);
     console.log(res);
     setValue(res);
   };
   const setMiddle = async () => {
-    setBudget(1);
+    const select = 1;
+    setBudget(select);
     console.log(budget);
-    const res = await fetchApi(area, budget, 17);
+    const res = await fetchApi(area, select, genre);
     console.log(res);
     setValue(res);
   };
   const setHigh = async () => {
-    setBudget(2);
+    const select = 2;
+    setBudget(select);
     console.log(budget);
-    const res = await fetchApi(area, budget, 17);
+    const res = await fetchApi(area, select, genre);
     console.log(res);
     setValue(res);
   };
   const setAll = async () => {
-    setBudget(3);
+    const select = 3;
+    setBudget(select);
     console.log(budget);
-    const res = await fetchApi(area, budget, 17);
+    const res = await fetchApi(area, select, genre);
     console.log(res);
     setValue(res);
   };
   const setNago = async () => {
-    setArea(0);
-    const res = await fetchApi(area, budget, 17);
+    const select = 0;
+    setArea(select);
+    const res = await fetchApi(select, budget, genre);
     setValue(res);
   };
   const setYambar = async () => {
+    const select = 1;
     setArea(1);
-    const res = await fetchApi(area, budget, 17);
+    const res = await fetchApi(select, budget, genre);
+    setValue(res);
+  };
+  const setGr = async (gr) => {
+    const select = gr;
+    setGenre(select);
+    const res = await fetchApi(area, budget, select);
     setValue(res);
   };
   return (
@@ -139,7 +151,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="居酒屋" src="/beer.png" width={100} height={100} />
+                <Image alt="居酒屋" src="/beer.png" width={100} height={100}  onClick={() => setGr(1)}/>
                 <Typography>居酒屋</Typography>
               </Box>
             </Grid>
@@ -151,7 +163,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="ダイニングバー・バル" src="/diningbar.png" width={100} height={100} />
+                <Image alt="ダイニングバー・バル" src="/diningbar.png" width={100} height={100} onClick={() => setGr(2)}/>
                 <Typography>ダイニングバー・バル</Typography>
               </Box>
             </Grid>
@@ -163,7 +175,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="創作料理" src="/creativecusine.png" width={100} height={100} />
+                <Image alt="創作料理" src="/creativecusine.png" width={100} height={100} onClick={() => setGr(3)}/>
                 <Typography>創作料理</Typography>
               </Box>
             </Grid>
@@ -175,7 +187,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="和食" src="/japanese.png" width={100} height={100} />
+                <Image alt="和食" src="/japanese.png" width={100} height={100} onClick={() => setGr(4)}/>
                 <Typography>和食</Typography>
               </Box>
             </Grid>
@@ -188,6 +200,7 @@ const Index = ({ gourmet }) => {
                 className={classes.button}
               >
                 <Image alt="洋食" src="/western.png" width={100} height={100} />
+                <Image alt="洋食" src="/western.png" width={100} height={100} onClick={() => setGr(5)}/>
                 <Typography>洋食</Typography>
               </Box>
             </Grid>
@@ -200,6 +213,7 @@ const Index = ({ gourmet }) => {
                 className={classes.button}
               >
                 <Image alt="イタリアン・フレンチ" src="/italian.png" width={100} height={100} />
+                <Image alt="イタリアン・フレンチ" src="/italian.png" width={100} height={100} onClick={() => setGr(6)}/>
                 <Typography>イタリアン・フレンチ</Typography>
               </Box>
             </Grid>
@@ -211,7 +225,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="中華" src="/chinese.png" width={100} height={100} />
+                <Image alt="中華" src="/chinese.png" width={100} height={100} onClick={() => setGr(7)}/>
                 <Typography>中華</Typography>
               </Box>
             </Grid>
@@ -223,7 +237,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="焼肉・ホルモン" src="/bbq.png" width={100} height={100} />
+                <Image alt="焼肉・ホルモン" src="/bbq.png" width={100} height={100} onClick={() => setGr(8)} />
                 <Typography>焼肉・ホルモン</Typography>
               </Box>
             </Grid>
@@ -235,7 +249,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="韓国料理" src="/korean.png" width={100} height={100} />
+                <Image alt="韓国料理" src="/korean.png" width={100} height={100} onClick={() => setGr(9)} />
                 <Typography>韓国料理</Typography>
               </Box>
             </Grid>
@@ -247,7 +261,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="アジア・エスニック料理" src="/ethnic.png" width={100} height={100} />
+                <Image alt="アジア・エスニック料理" src="/ethnic.png" width={100} height={100} onClick={() => setGr(10)} />
                 <Typography>アジア・エスニック料理</Typography>
               </Box>
             </Grid>
@@ -259,7 +273,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="各国料理" src="/nationalflags.png" width={100} height={100} />
+                <Image alt="各国料理" src="/nationalflags.png" width={100} height={100} onClick={() => setGr(11)} />
                 <Typography>各国料理</Typography>
               </Box>
             </Grid>
@@ -271,7 +285,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="カラオケ・パーティ" src="/karaoke.png" width={100} height={100} />
+                <Image alt="カラオケ・パーティ" src="/karaoke.png" width={100} height={100} onClick={() => setGr(12)} />
                 <Typography>カラオケ・パーティ</Typography>
               </Box>
             </Grid>
@@ -283,7 +297,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="バー・カクテル" src="/cocktail.png" width={100} height={100} />
+                <Image alt="バー・カクテル" src="/cocktail.png" width={100} height={100} onClick={() => setGr(13)} />
                 <Typography>バー・カクテル</Typography>
               </Box>
             </Grid>
@@ -295,7 +309,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="ラーメン" src="/ramen.png" width={100} height={100} />
+                <Image alt="ラーメン" src="/ramen.png" width={100} height={100} onClick={() => setGr(14)} />
                 <Typography>ラーメン</Typography>
               </Box>
             </Grid>
@@ -307,7 +321,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="お好み焼き・もんじゃ" src="/okonomiyaki.png" width={100} height={100} />
+                <Image alt="お好み焼き・もんじゃ" src="/okonomiyaki.png" width={100} height={100} onClick={() => setGr(15)} />
                 <Typography>お好み焼き・もんじゃ</Typography>
               </Box>
             </Grid>
@@ -319,7 +333,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="カフェ・スイーツ" src="/cafe.png" width={100} height={100} />
+                <Image alt="カフェ・スイーツ" src="/cafe.png" width={100} height={100} onClick={() => setGr(16)} />
                 <Typography>カフェ・スイーツ</Typography>
               </Box>
             </Grid>
@@ -331,29 +345,13 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="その他グルメ" src="/others.png" width={100} height={100} />
+                <Image alt="その他グルメ" src="/others.png" width={100} height={100} onClick={() => setGr(17)} />
                 <Typography>その他グルメ</Typography>
               </Box>
             </Grid>
           </Grid>
         </Card>
         {/* list-template */}
-        {/* <Typography variant="h4">オススメ</Typography>
-        <Card variant="outlined" className={classes.root} borderRadius="borderRadius">
-          <Grid container>
-            <Grid item xs={10}>
-              <CardContent className={classes.details}>
-                <Typography variant="h5">店名</Typography>
-                <Typography variant="body1">
-                  お店の情報など
-                </Typography>
-              </CardContent>
-            </Grid>
-            <Grid item xs={2}>
-              <Image alt="店画像" src="/logo2.png" width={200} height={200} />
-            </Grid>
-          </Grid>
-        </Card> */}
         <Box p={1} textAlign="center">
           <Typography variant="h4">価格帯</Typography>
         </Box>
@@ -393,18 +391,6 @@ const Index = ({ gourmet }) => {
                 className={classes.button}
               >
                 <Typography variant="h6">1500円~3000円</Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={3} onClick={setHigh}>
-              <Box
-                p={1}
-                border={1}
-                boxShadow={1}
-                borderRadius="borderRadius"
-                borderColor="grey.300"
-                className={classes.button}
-              >
-                <Typography variant="h6">3000円~5000円</Typography>
               </Box>
             </Grid>
           </Grid>
@@ -510,7 +496,7 @@ const useStyles = makeStyles({
 
 export async function getServerSideProps() {
   // 取得テスト
-  const res = await fetchApi(0, 3, 17);
+  const res = await fetchApi(0, 3, 0);
   return {
     props: {
       gourmet: res,
