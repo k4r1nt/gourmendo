@@ -247,7 +247,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="韓国料理" src="/korean.png" width={100} height={100} onClick={() => setGr(9)} />
+                <Image alt="韓国料理" src="/korean.png" width={100} height={100} onClick={() => setGr(17)} />
                 <Typography>韓国料理</Typography>
               </Box>
             </Grid>
@@ -259,7 +259,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="アジア・エスニック料理" src="/ethnic.png" width={100} height={100} onClick={() => setGr(10)} />
+                <Image alt="アジア・エスニック料理" src="/ethnic.png" width={100} height={100} onClick={() => setGr(9)} />
                 <Typography>アジア・エスニック料理</Typography>
               </Box>
             </Grid>
@@ -271,7 +271,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="各国料理" src="/nationalflags.png" width={100} height={100} onClick={() => setGr(11)} />
+                <Image alt="各国料理" src="/nationalflags.png" width={100} height={100} onClick={() => setGr(10)} />
                 <Typography>各国料理</Typography>
               </Box>
             </Grid>
@@ -283,7 +283,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="カラオケ・パーティ" src="/karaoke.png" width={100} height={100} onClick={() => setGr(12)} />
+                <Image alt="カラオケ・パーティ" src="/karaoke.png" width={100} height={100} onClick={() => setGr(11)} />
                 <Typography>カラオケ・パーティ</Typography>
               </Box>
             </Grid>
@@ -295,7 +295,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="バー・カクテル" src="/cocktail.png" width={100} height={100} onClick={() => setGr(13)} />
+                <Image alt="バー・カクテル" src="/cocktail.png" width={100} height={100} onClick={() => setGr(12)} />
                 <Typography>バー・カクテル</Typography>
               </Box>
             </Grid>
@@ -307,7 +307,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="ラーメン" src="/ramen.png" width={100} height={100} onClick={() => setGr(14)} />
+                <Image alt="ラーメン" src="/ramen.png" width={100} height={100} onClick={() => setGr(13)} />
                 <Typography>ラーメン</Typography>
               </Box>
             </Grid>
@@ -319,7 +319,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="お好み焼き・もんじゃ" src="/okonomiyaki.png" width={100} height={100} onClick={() => setGr(15)} />
+                <Image alt="お好み焼き・もんじゃ" src="/okonomiyaki.png" width={100} height={100} onClick={() => setGr(16)} />
                 <Typography>お好み焼き・もんじゃ</Typography>
               </Box>
             </Grid>
@@ -331,7 +331,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="カフェ・スイーツ" src="/cafe.png" width={100} height={100} onClick={() => setGr(16)} />
+                <Image alt="カフェ・スイーツ" src="/cafe.png" width={100} height={100} onClick={() => setGr(14)} />
                 <Typography>カフェ・スイーツ</Typography>
               </Box>
             </Grid>
@@ -343,7 +343,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="その他グルメ" src="/others.png" width={100} height={100} onClick={() => setGr(17)} />
+                <Image alt="その他グルメ" src="/others.png" width={100} height={100} onClick={() => setGr(15)} />
                 <Typography>その他グルメ</Typography>
               </Box>
             </Grid>
