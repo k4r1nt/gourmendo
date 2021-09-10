@@ -15,7 +15,13 @@ import CardMedia from '@material-ui/core/CardMedia';
 import { makeStyles, useTheme, withStyles } from '@material-ui/core/styles';
 import Image from 'next/image';
 import { Autocomplete } from '@material-ui/lab';
+import Button from '@material-ui/core/Button';
 import ButtonBase from '@material-ui/core/ButtonBase';
+import CallIcon from '@material-ui/icons/Call';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import HomeIcon from '@material-ui/icons/Home';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
 
 const fetchApi = async (area, budget, genre) => {
   const query = new URLSearchParams();
@@ -106,114 +112,233 @@ const Index = ({ gourmet }) => {
     <div>
       <CustomAppBar />
       <Container>
-        <Typography variant="h4"><Box>ジャンル</Box></Typography>
+        <Box p={1} textAlign="center">
+          <Typography variant="h4">
+            <Box>ジャンル</Box>
+          </Typography>
+        </Box>
         <Card variant="outlined" className={classes.root}>
-        <Grid container spacing={1} className={classes.genre} justifyContent="center">
-          <Grid item xs={2} className={classes.image}>
-            <Box border={1} boxShadow={1} borderRadius="borderRadius">
-            <Image alt="居酒屋" src="/beer.png" width={100} height={100} />
-            <Typography>居酒屋</Typography>
-            </Box>
+          <Grid container className={classes.genre} justifyContent="center">
+            <Grid item xs={2} className={classes.image}>
+              <Box
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Image alt="すべて" src="/book.png" width={100} height={100} />
+                <Typography>すべて</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={2} className={classes.image}>
+              <Box
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Image alt="居酒屋" src="/beer.png" width={100} height={100} />
+                <Typography>居酒屋</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={2} className={classes.image}>
+              <Box
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Image alt="ダイニングバー・バル" src="/diningbar.png" width={100} height={100} />
+                <Typography>ダイニングバー・バル</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={2} className={classes.image}>
+              <Box
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Image alt="創作料理" src="/creativecusine.png" width={100} height={100} />
+                <Typography>創作料理</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={2} className={classes.image}>
+              <Box
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Image alt="和食" src="/japanese.png" width={100} height={100} />
+                <Typography>和食</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={2} className={classes.image}>
+              <Box
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Image alt="洋食" src="/western.png" width={100} height={100} />
+                <Typography>洋食</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={2} className={classes.image}>
+              <Box
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Image alt="イタリアン・フレンチ" src="/italian.png" width={100} height={100} />
+                <Typography>イタリアン・フレンチ</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={2} className={classes.image}>
+              <Box
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Image alt="中華" src="/chinese.png" width={100} height={100} />
+                <Typography>中華</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={2} className={classes.image}>
+              <Box
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Image alt="焼肉・ホルモン" src="/bbq.png" width={100} height={100} />
+                <Typography>焼肉・ホルモン</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={2} className={classes.image}>
+              <Box
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Image alt="韓国料理" src="/korean.png" width={100} height={100} />
+                <Typography>韓国料理</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={2} className={classes.image}>
+              <Box
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Image alt="アジア・エスニック料理" src="/ethnic.png" width={100} height={100} />
+                <Typography>アジア・エスニック料理</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={2} className={classes.image}>
+              <Box
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Image alt="各国料理" src="/nationalflags.png" width={100} height={100} />
+                <Typography>各国料理</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={2} className={classes.image}>
+              <Box
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Image alt="カラオケ・パーティ" src="/karaoke.png" width={100} height={100} />
+                <Typography>カラオケ・パーティ</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={2} className={classes.image}>
+              <Box
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Image alt="バー・カクテル" src="/cocktail.png" width={100} height={100} />
+                <Typography>バー・カクテル</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={2} className={classes.image}>
+              <Box
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Image alt="ラーメン" src="/ramen.png" width={100} height={100} />
+                <Typography>ラーメン</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={2} className={classes.image}>
+              <Box
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Image alt="お好み焼き・もんじゃ" src="/okonomiyaki.png" width={100} height={100} />
+                <Typography>お好み焼き・もんじゃ</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={2} className={classes.image}>
+              <Box
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Image alt="カフェ・スイーツ" src="/cafe.png" width={100} height={100} />
+                <Typography>カフェ・スイーツ</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={2} className={classes.image}>
+              <Box
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Image alt="その他グルメ" src="/others.png" width={100} height={100} />
+                <Typography>その他グルメ</Typography>
+              </Box>
+            </Grid>
           </Grid>
-          <Grid item xs={2} className={classes.image}>
-            <Box border={1} boxShadow={1} borderRadius="borderRadius">
-            <Image alt="ダイニングバー・バル" src="/diningbar.png" width={100} height={100} />
-            <Typography>ダイニングバー・バル</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={2} className={classes.image}>
-            <Box border={1} boxShadow={1} borderRadius="borderRadius">
-            <Image alt="創作料理" src="/creativecusine.png" width={100} height={100} />
-            <Typography>創作料理</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={2} className={classes.image}>
-            <Box border={1} boxShadow={1} borderRadius="borderRadius">
-            <Image alt="和食" src="/japanese.png" width={100} height={100} />
-            <Typography>和食</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={2} className={classes.image}>
-            <Box border={1} boxShadow={1} borderRadius="borderRadius">
-            <Image alt="洋食" src="/western.png" width={100} height={100} />
-            <Typography>洋食</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={2} className={classes.image}>
-            <Box border={1} boxShadow={1} borderRadius="borderRadius">
-            <Image alt="イタリアン・フレンチ" src="/italian.png" width={100} height={100} />
-            <Typography>イタリアン・フレンチ</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={2} className={classes.image}>
-            <Box border={1} boxShadow={1} borderRadius="borderRadius">
-            <Image alt="中華" src="/chinese.png" width={100} height={100} />
-            <Typography>中華</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={2} className={classes.image}>
-            <Box border={1} boxShadow={1} borderRadius="borderRadius">
-            <Image alt="焼肉・ホルモン" src="/bbq.png" width={100} height={100} />
-            <Typography>焼肉・ホルモン</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={2} className={classes.image}>
-            <Box border={1} boxShadow={1} borderRadius="borderRadius">
-            <Image alt="韓国料理" src="/korean.png" width={100} height={100} />
-            <Typography>韓国料理</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={2} className={classes.image}>
-            <Box border={1} boxShadow={1} borderRadius="borderRadius">
-            <Image alt="アジア・エスニック料理" src="/ethnic.png" width={100} height={100} />
-            <Typography>アジア・エスニック料理</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={2} className={classes.image}>
-            <Box border={1} boxShadow={1} borderRadius="borderRadius">
-            <Image alt="各国料理" src="/internationalcusine.png" width={100} height={100} />
-            <Typography>各国料理</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={2} className={classes.image}>
-            <Box border={1} boxShadow={1} borderRadius="borderRadius">
-            <Image alt="カラオケ・パーティ" src="/karaoke.png" width={100} height={100} />
-            <Typography>カラオケ・パーティ</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={2} className={classes.image}>
-            <Box border={1} boxShadow={1} borderRadius="borderRadius">
-            <Image alt="バー・カクテル" src="/cocktail.png" width={100} height={100} />
-            <Typography>バー・カクテル</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={2} className={classes.image}>
-            <Box border={1} boxShadow={1} borderRadius="borderRadius">
-            <Image alt="ラーメン" src="/ramen.png" width={100} height={100} />
-            <Typography>ラーメン</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={2} className={classes.image}>
-            <Box border={1} boxShadow={1} borderRadius="borderRadius">
-            <Image alt="お好み焼き・もんじゃ" src="/okonomiyaki.png" width={100} height={100} />
-            <Typography>お好み焼き・もんじゃ</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={2} className={classes.image}>
-            <Box border={1} boxShadow={1} borderRadius="borderRadius">
-            <Image alt="カフェ・スイーツ" src="/cafe.png" width={100} height={100} />
-            <Typography>カフェ・スイーツ</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={2} className={classes.image}>
-            <Box border={1} boxShadow={1} borderRadius="borderRadius">
-            <Image alt="その他グルメ" src="/others.png" width={100} height={100} />
-            <Typography>その他グルメ</Typography>
-            </Box>
-          </Grid>
-        </Grid>
         </Card>
-        <Typography variant="h4">オススメ</Typography>
+        {/* list-template */}
+        {/* <Typography variant="h4">オススメ</Typography>
         <Card variant="outlined" className={classes.root} borderRadius="borderRadius">
           <Grid container>
             <Grid item xs={10}>
@@ -225,49 +350,116 @@ const Index = ({ gourmet }) => {
               </CardContent>
             </Grid>
             <Grid item xs={2}>
-              <Image alt="店画像" src="/logo3.png" width={200} height={200} />
+              <Image alt="店画像" src="/logo2.png" width={200} height={200} />
+            </Grid>
+          </Grid>
+        </Card> */}
+        <Box p={1} textAlign="center">
+          <Typography variant="h4">価格帯</Typography>
+        </Box>
+        <Card variant="outlined">
+          <Grid container justifyContent="center" className={classes.pricerenge} spacing={2}>
+            <Grid item xs={2} onClick={setAll}>
+              <Box
+                p={1}
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Typography variant="h6">すべて</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={2} onClick={setLow}>
+              <Box
+                p={1}
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Typography variant="h6">0円~1500円</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={3} onClick={setMiddle}>
+              <Box
+                p={1}
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Typography variant="h6">1500円~3000円</Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={3} onClick={setHigh}>
+              <Box
+                p={1}
+                border={1}
+                boxShadow={1}
+                borderRadius="borderRadius"
+                borderColor="grey.300"
+                className={classes.button}
+              >
+                <Typography variant="h6">3000円~5000円</Typography>
+              </Box>
             </Grid>
           </Grid>
         </Card>
-        <Typography variant="h4">ジャンル</Typography>
-        <div>
-          <CustomButton onClick={setLow}>0~1500</CustomButton>
-          <CustomButton onClick={setMiddle}>1500~3000</CustomButton>
-          <CustomButton onClick={setHigh}>3000~5000</CustomButton>
-          <CustomButton onClick={setAll}>All</CustomButton>
-        </div>
-        <div>
+        {/* <div>
           <CustomButton onClick={setNago}>名護</CustomButton>
           <CustomButton onClick={setYambar}>北部</CustomButton>
-        </div>
-        <Typography variant="h4">オススメ</Typography>
-        <ul>
-          {value.results.shop.map((item, index) => {
-            return (
-              <li key={index}>
-                <Link href={item.urls.pc}>
-                <Card variant="outlined" className={classes.root} borderRadius="borderRadius">
-                  <Grid container>
-                    <Grid item xs={10}>
-                      <CardContent className={classes.details}>
-                        <Typography variant="h5">{item.name}</Typography>
-                        <Typography variant="body1">
-                            <p>{item.genre.name}</p>
-                            <p>{item.catch}</p>
-                            <p>{item.access}</p>
-                        </Typography>
-                      </CardContent>
-                    </Grid>
-                    <Grid item xs={2}>
-                      <img src={item.photo.pc.l} alt={item.className}  width={200} height={200} />
-                    </Grid>
-                  </Grid>
-                </Card>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        </div> */}
+        <Box p={1} textAlign="center">
+          <Typography variant="h4">オススメ</Typography>
+        </Box>
+        <Card variant="outlined" className={classes.recomend}>
+          <List>
+            {value.results.shop.map((item, index) => {
+              return (
+                <ListItem key={index}>
+                  <Link href={item.urls.pc}>
+                    <Paper className={classes.root}>
+                      <Card variant="outlined" className={classes.root}>
+                        <Grid container className={classes.button}>
+                          <Grid item xs={10}>
+                            <CardContent className={classes.details}>
+                              <Typography variant="h5">{item.name}</Typography>
+                              <Typography variant="body1">
+                                <p>{item.genre.name}</p>
+                                <p>{item.catch}</p>
+                                <p>{item.access}</p>
+                              </Typography>
+                            </CardContent>
+                            <Grid container>
+                              {/* <Grid item xs={4}>
+                              <Button startIcon={<CallIcon />}>
+                                call
+                              </Button>
+                            </Grid> */}
+                              <Grid item xs={4}>
+                                <Button startIcon={<HomeIcon />}>{item.address}</Button>
+                              </Grid>
+                              <Grid item xs={8}>
+                                <Button startIcon={<AccessTimeIcon />}>{item.open}</Button>
+                              </Grid>
+                            </Grid>
+                          </Grid>
+                          <Grid item xs={2}>
+                            <img src={item.photo.pc.l} alt={item.className} width={200} height={200} />
+                          </Grid>
+                        </Grid>
+                      </Card>
+                    </Paper>
+                  </Link>
+                </ListItem>
+              );
+            })}
+          </List>
+        </Card>
       </Container>
     </div>
   );
@@ -290,13 +482,29 @@ const useStyles = makeStyles({
   },
   genre: {
     display: 'flex',
-    height: 250,
+    height: 300,
+    overflow: 'auto',
+    padding: 5,
+  },
+  recomend: {
+    display: 'flex',
+    height: 1200,
     overflow: 'auto',
   },
   image: {
     textAlign: 'center',
     flexDirection: 'column',
-    boxSizing: 'border-box',
+    padding: 5,
+  },
+  pricerenge: {
+    textAlign: 'center',
+    padding: 10,
+  },
+  button: {
+    '&:hover': {
+      backgroundColor: '#f3f3f3',
+      cursor: 'pointer',
+    },
   },
 });
 
