@@ -199,7 +199,6 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="洋食" src="/western.png" width={100} height={100} />
                 <Image alt="洋食" src="/western.png" width={100} height={100} onClick={() => setGr(5)}/>
                 <Typography>洋食</Typography>
               </Box>
@@ -212,7 +211,6 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="イタリアン・フレンチ" src="/italian.png" width={100} height={100} />
                 <Image alt="イタリアン・フレンチ" src="/italian.png" width={100} height={100} onClick={() => setGr(6)}/>
                 <Typography>イタリアン・フレンチ</Typography>
               </Box>
