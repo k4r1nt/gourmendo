@@ -139,7 +139,7 @@ const Index = ({ gourmet }) => {
                 borderColor="grey.300"
                 className={classes.button}
               >
-                <Image alt="すべて" src="/book.png" width={100} height={100} />
+                <Image alt="すべて" src="/book.png" width={100} height={100} onClick={() => setGr(0)}/>
                 <Typography>すべて</Typography>
               </Box>
             </Grid>
